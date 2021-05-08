@@ -123,7 +123,8 @@ function check() {
     for (const d in DISTRICTS) {
         var district_id = DISTRICTS[d];
         get((err, res) => {
-            if (err) return alert(`Error: ${err} for district_id: ${district_id}`)
+            if (err) return
+            // alert(`Error: ${err} for district_id: ${district_id}`)
             const date = getDate();
             const age = getAge();
             let count = 0;
