@@ -107,8 +107,9 @@ function get(callback, district) {
         else
             callback(status, req.response);
     };
-    req.send(); 
+    req.send();
 }
+
 
 DISTRICTS = [140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150]
 
