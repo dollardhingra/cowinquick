@@ -120,6 +120,7 @@ DISTRICT_TO_NAME = {
 
 function check() {
     results.innerHTML = ""
+    let match_count = 0;
     for (const d in DISTRICTS) {
         var district_id = DISTRICTS[d];
         get((err, res) => {
@@ -139,18 +140,30 @@ function check() {
                     ${center.sessions.filter(s => s.available_capacity > 0).map(s => s.date + ': ' + s.available_capacity).join('<br>')}<br>
                 </div>
             `;
-            console.log(res);
+
             if (available.length === 0) {
-                results.innerHTML += `<h4>${district_name}</h4>`
-                results.innerHTML += `<div id="result_msg_${district_id}" class="alert alert-danger">Found ${count} centers listed for ${age}+ age group in your district</div><hr/>`
+
+                results.innerHTML += `<h4 style="display: none;">${district_name}</h4>`
+                results.innerHTML += `<div id="result_msg_${district_id}" style="display: none;" class="alert alert-danger">Found ${count} centers listed for ${age}+ age group in your district</div>`
+
                 // results.innerHTML += `<div>All ${age}+ vaccine centers are fully booked<br>Please keep checking for updates</div> <hr>`
             } else {
+                match_count = match_count + 1
+                console.log(match_count);
                 results.innerHTML += `<div id="result_msg_${district_id}" class="alert alert-success"><h4>${district_name}</h4>Found <b>${count} centers</b> listed for ${age}+ age group in your district, out of which <b>${available.length} centers</b> have available slots, head over to the <b><a href="https://selfregistration.cowin.gov.in/" target="_blank">official CoWIN website</a></b> to book the slot</div>`
                 results.innerHTML += available.map(c => template(c)).join(' ')
                 results.innerHTML += `<hr>`
+                var div_1 = document.getElementById('div_1');
+                div_1.outerHTML = ""
             }
+
             // document.getElementById("result_msg").scrollIntoView();
         }, district=district_id);
+
+    }
+
+    if (match_count === 0){
+        results.innerHTML = `<div id="div_1" class="alert alert-danger">No Result found</div>`
     }
 
 }
