@@ -35,43 +35,44 @@
 	</div>
 	<div class="mb-1 py-4">
 		<div class="alert alert-primary" role="alert">
-		  This site can only be used for checking the available slots quickly and easily in your district. Once you find an available slot, book the slots from the official portal for <a href="https://selfregistration.cowin.gov.in/" target="_blank">Co-WIN Registration</a>
+		  This site can only be used for checking the available slots quickly and easily in Delhi. Once you find an available slot, book the slots from the official portal for <a href="https://selfregistration.cowin.gov.in/" target="_blank">Co-WIN Registration</a>
 		</div>
+
+
 	</div>
+
 	<div>
 		<form class="container mb-5">
-<!--			<div class="row">-->
-<!--				<div class="col-md-12">-->
-<!--					<label for="state" class="form-label">State:</label>-->
-<!--					<select id="state" class="form-select">-->
-<!--						<option value="-" selected disabled hidden>Select State</option>-->
-<!--					</select>-->
-<!--				</div>-->
+			<div class="row mb-3">
+				<div class="col-md-6">
+					<label for="state" class="form-label">State:</label>
+					<select id="state" class="form-select">
+						<option value="" selected disabled>Delhi</option>
+					</select>
+				</div>
 
-<!--				<div class="col-md-12" style="margin-top: 20px;">-->
-<!--					<label class="form-label">District:</label>-->
-<!--				</div>-->
-<!--				<div class="col-md-12" id="div_radios">-->
+				<div class="col-md-6">
+					<label for="district" class="form-label">District:</label>
+					<select id="district" class="form-select">
+						<option value="" selected disabled>All</option>
+					</select>
+				</div>
+			</div>
+			<div class="row mb-5">
+				<div class="col-md-6">
+					<label for="age" class="form-label">Age:</label>
+					<select id="age" class="form-select">
+						<option value="" selected disabled>18-45</option>
+					</select>
+				</div>
 
-<!--				</div>-->
-<!--			</div>-->
-			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-6">
 					<label for="date" class="form-label">Date (dd-mm-yyyy):</label>
 					<input type="date" id="date" class="form-control" onchange="check();">
 				</div>
-<!--				<div class="col-md-6">-->
-<!--					<label class="form-label">Age:</label><br>-->
-<!--					<div>-->
-
-<!--						<input type="radio" id="18+" name="age" value="18+" class="btn-check" checked onclick="check();"><label for="18+" class="btn btn-outline-primary">18+</label>-->
-
-<!--						<input type="radio" id="45+" name="age" value="45+" class="btn-check" onclick="check();"><label for="45+" class="btn btn-outline-primary">45+</label>-->
-<!--					</div>-->
-<!--				</div>-->
 			</div>
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-12 d-grid gap-2">
 					<button type="button" class="btn btn-primary" onclick="check();"> Search</button>
 				</div>
 			</div>
@@ -84,9 +85,7 @@
 	</div>
 
 	<div class="mt-5 py-4">
-		<ul class="list-group-item mb-0">Features: Added age group filter (18+ / 45+), removed unavailable slots from the original <a href="https://selfregistration.cowin.gov.in/" target="_blank">Co-WIN App</a>and added the option for searching quickly on clicking any option</ul>
-		<ul class="list-group-item mb-0">Implemented using the <a href="https://apisetu.gov.in/public/marketplace/api/cowin" target="_blank">Co-WIN Public API</a>. Code available at <a href="https://github.com/dollardhingra/cowin" target="_blank">GitHub Repository</a></ul>
-		<ul class="list-group-item mb-0">Originally forked from <a href="https://github.com/neelpy/cowin" target="_blank">GitHub Repository</a></ul>
+		<ul class="list-group-item mb-0">Implemented using the <a href="https://apisetu.gov.in/public/marketplace/api/cowin" target="_blank">Co-WIN Public API</a>. Code available at <a href="https://github.com/dollardhingra/cowindelhi" target="_blank">GitHub Repository</a></ul>
 	</div>
 </main>
 

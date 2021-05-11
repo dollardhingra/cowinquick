@@ -1,11 +1,11 @@
-# CoWIN Vaccine Availibility
+# CoWIN Delhi Vaccine Availability
 
 ## Features
-
-- Added age group filter (18+ / 45+)
+- [Website Link](https://dollardhingra.com/cowindelhi/)
+- Exclusively designed for booking in Delhi for 18-45 age group, for booking in other 
+state visit this [site](https://dollardhingra.com/cowin/)
+- Displays all available slots in all districts in Delhi at once
 - Removed unavailable slots from the original app
-- Search automatically clicking on any district/Age/date selection
 - Implemented using the [Co-WIN Public API](https://apisetu.gov.in/public/marketplace/api/cowin).
 - Made available to public using [Github Pages](https://pages.github.com/)
-- Originally forked from [repo](https://github.com/neelpy/cowin)
 
