@@ -113,10 +113,6 @@ function get(callback, district) {
 
 DISTRICTS = [140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150]
 
-DISTRICT_TO_NAME = {
-    140: "Central Delhi",
-    141: "",
-}
 
 function check() {
     results.innerHTML = ""
@@ -130,13 +126,14 @@ function check() {
             const age = getAge();
             let count = 0;
             var district_name = res.centers[0]["district_name"]
+
             const available = res.centers.filter(center => {
                 count += center.sessions[0].min_age_limit === age;
                 return center.sessions.some(s => (s.available_capacity > 0 && s.min_age_limit === age))
             });
             const template = center => `
                 <div class="p-1" style="border: 1px solid black">
-                    <b>${center.name}, Pincode: ${center.pincode}</b><br>
+                    <b>${center.name}, Pincode: ${center.pincode}</b> (${center.sessions[0]["vaccine"]})<br>
                     ${center.sessions.filter(s => s.available_capacity > 0).map(s => s.date + ': ' + s.available_capacity).join('<br>')}<br>
                 </div>
             `;
