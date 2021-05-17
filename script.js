@@ -54,7 +54,7 @@ function getDate() {
 }
 
 function getAge() {
-    return 18;
+    return age18.checked ? 18 : 45;
 }
 
 function getDose() {
@@ -146,8 +146,8 @@ function check() {
             });
             const template = center => `
                 <div class="p-1" style="border: 1px solid black">
-                    <b>${center.name}, Pincode: ${center.pincode}</b> (${center.sessions[0]["vaccine"]})<br>
-                    ${center.sessions.filter(s => s[available_capacity_var] > 0).map(s => s.date + ': ' + s.available_capacity + ', dose1: '+ s.available_capacity_dose1+ ', dose2: '+ s.available_capacity_dose2).join('<br>')}<br>
+                    <b>${center.name}, Pincode: ${center.pincode}</b> <span class="badge rounded-pill bg-primary">${center.sessions[0]["vaccine"]}</span> <span class="badge rounded-pill bg-success">${center.fee_type}</span><br>
+                    ${center.sessions.filter(s => s[available_capacity_var] > 0).map(s => s.date + '- <strong>Total Doses:</strong> <mark>' + s.available_capacity + '</mark>, <strong>Dose 1:</strong> <mark>'+ s.available_capacity_dose1+ '</mark>, <strong>Dose 2:</strong> <mark>'+ s.available_capacity_dose2+ '</mark> <span class="badge bg-secondary">' + s.min_age_limit + '+</span>').join('<br>')}<br>
                 </div>
             `;
 
