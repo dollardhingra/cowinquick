@@ -59,18 +59,29 @@
 				</div>
 			</div>
 			<div class="row mb-5">
-				<div class="col-md-6">
+				<div class="col-md-4">
 					<label for="age" class="form-label">Age:</label>
 					<select id="age" class="form-select">
 						<option value="" selected disabled>18-45</option>
 					</select>
 				</div>
 
-				<div class="col-md-6">
+				<div class="col-md-4">
 					<label for="date" class="form-label">Date (dd-mm-yyyy):</label>
 					<input type="date" id="date" class="form-control" onchange="check();">
 				</div>
+				<div class="col-md-4">
+					<label class="form-label">Select Dose:</label><br/>
+					<input type="radio" value="dose1" name="dose" class="btn-check" id="btn-dose1" autocomplete="off">
+					<label class="btn btn-outline-primary" for="btn-dose1">Dose 1</label>
+					<input type="radio" value="dose2" name="dose" class="btn-check" id="btn-dose2" autocomplete="off">
+					<label class="btn btn-outline-primary" for="btn-dose2">Dose 2</label>
+					<input type="radio" value="dose2" checked name="dose" class="btn-check" id="btn-doseall" autocomplete="off">
+					<label class="btn btn-outline-primary" for="btn-doseall">Both</label>
+
+				</div>
 			</div>
+
 			<div class="row">
 				<div class="col-md-12 d-grid gap-2">
 					<button type="button" class="btn btn-primary" onclick="check();"> Search</button>

@@ -1,4 +1,5 @@
 var dateField = document.getElementById('date');
+var doseField = document.getElementById('date');
 var age18 = document.getElementById('18+');
 var date = document.getElementById('date');
 var results = document.getElementById('results');
@@ -54,6 +55,10 @@ function getDate() {
 
 function getAge() {
     return 18;
+}
+
+function getDose() {
+    return $("input[type='radio'][name='dose']:checked").val();
 }
 
 function setStates() {
@@ -117,24 +122,32 @@ DISTRICTS = [140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150]
 function check() {
     results.innerHTML = ""
     let match_count = 0;
+
     for (const d in DISTRICTS) {
         var district_id = DISTRICTS[d];
         get((err, res) => {
             if (err) return
-            // alert(`Error: ${err} for district_id: ${district_id}`)
             const date = getDate();
             const age = getAge();
+            const map_dose = {
+                "dose1": "available_capacity_dose1",
+                "dose2": "available_capacity_dose2",
+                "both": "available_capacity",
+            }
+
+            var capacity_var = getDose();
+            var available_capacity_var = map_dose[capacity_var]
             let count = 0;
             var district_name = res.centers[0]["district_name"]
 
             const available = res.centers.filter(center => {
                 count += center.sessions[0].min_age_limit === age;
-                return center.sessions.some(s => (s.available_capacity > 0 && s.min_age_limit === age))
+                return center.sessions.some(s => (s[available_capacity_var] > 0 && s.min_age_limit === age))
             });
             const template = center => `
                 <div class="p-1" style="border: 1px solid black">
                     <b>${center.name}, Pincode: ${center.pincode}</b> (${center.sessions[0]["vaccine"]})<br>
-                    ${center.sessions.filter(s => s.available_capacity > 0).map(s => s.date + ': ' + s.available_capacity).join('<br>')}<br>
+                    ${center.sessions.filter(s => s[available_capacity_var] > 0).map(s => s.date + ': ' + s.available_capacity + ', dose1: '+ s.available_capacity_dose1+ ', dose2: '+ s.available_capacity_dose2).join('<br>')}<br>
                 </div>
             `;
 
@@ -153,8 +166,6 @@ function check() {
                 var div_1 = document.getElementById('div_1');
                 div_1.outerHTML = ""
             }
-
-            // document.getElementById("result_msg").scrollIntoView();
         }, district=district_id);
 
     }
@@ -165,20 +176,10 @@ function check() {
 
 }
 
-// state.onchange = () => {
-//     localStorage.setItem('state', state.value)
-//     setDistricts()
-// }
-//
 
 window.onload = () => {
     const s = localStorage.getItem('state')
     const d = localStorage.getItem('district')
-    // setStates();
-    // if (s) {
-    //     state.value = s;
-    //     setDistricts(d);
-    // }
     date.valueAsDate = new Date();
 
 }
