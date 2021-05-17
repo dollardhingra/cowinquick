@@ -59,7 +59,11 @@
 				</div>
 			</div>
 			<div class="row mb-5">
-				<div class="col-md-2">
+				<div class="col-md-6">
+					<label for="date" class="form-label">Date (dd-mm-yyyy):</label>
+					<input type="date" id="date" class="form-control" onchange="check();">
+				</div>
+				<div class="col-md-3">
 					<label class="form-label">Age:</label>
 					<div>
 						<input type="radio" id="18+" name="age" value="18+" class="btn-check" checked onclick="check();"><label for="18+" class="btn btn-outline-primary">18+</label>
@@ -68,10 +72,7 @@
 					</div>
 				</div>
 
-				<div class="col-md-3">
-					<label for="date" class="form-label">Date (dd-mm-yyyy):</label>
-					<input type="date" id="date" class="form-control" onchange="check();">
-				</div>
+
 				<div class="col-md-3">
 					<label class="form-label">Select Dose:</label><br/>
 					<input type="radio" value="dose1" name="dose" onclick="check();" class="btn-check" id="btn-dose1" autocomplete="off">
