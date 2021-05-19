@@ -1,7 +1,7 @@
 # CoWIN Delhi Vaccine Availability
 
 ## Features
-- [Website Link](https://dollardhingra.com/cowindelhi/)
+- [Website Link](https://dollardhingra.com/cowinquick/)
 - Exclusively designed for booking in Delhi for 18-45 age group, for booking in other 
 state visit this [site](https://dollardhingra.com/cowin/)
 - Displays all available slots in all districts in Delhi at once
