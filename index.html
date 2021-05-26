@@ -13,13 +13,7 @@
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-2TD2EHC7LN"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'G-2TD2EHC7LN');
-	</script>
+
 </head>
 
 <body>
@@ -36,30 +30,65 @@
 </header>
 
 <main role="main" class="container">
+
 	<div class="mt-2 py-4">
 	</div>
-	<div class="mb-1 py-4">
-		<div class="alert alert-primary" role="alert">
-		  This site can only be used for checking the available slots quickly and easily in Delhi. Once you find an available slot, book the slots from the official portal for <a href="https://selfregistration.cowin.gov.in/" target="_blank">Co-WIN Registration</a>
+	<div class="mt-4 mb-4">
+		<!-- Button trigger modal -->
+		<div class="text-center">
+			<button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+			  Click here for help & features
+			</button>
 		</div>
 
 
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Cowin Quick</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			  </div>
+			  <div class="modal-body">
+				  <h3>Features</h3>
+				  <ol class="list-group list-group-numbered">
+					  <li class="list-group-item">Find vaccine slots quickly in a state(all districts at once or selected districts) in India</li>
+					  <li class="list-group-item">No need for login/OTP</li>
+					  <li class="list-group-item">Realtime filters for age, vaccine type, dose & district</li>
+				  </ol>
+				  <div class="alert alert-primary mt-2" role="alert">
+					  This site can only be used for checking the available slots quickly
+					  and easily in Delhi. Once you find an available slot, book the slots
+					  from the official portal for <a
+						  href="https://selfregistration.cowin.gov.in/" target="_blank">Co-WIN
+					  Registration</a>
+				  </div>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
 	</div>
+
 
 	<div>
 		<form class="container mb-5">
 			<div class="row mb-3">
 				<div class="col-md-6">
 					<label for="state" class="form-label">State:</label>
-					<select id="state" class="form-select">
-						<option value="" selected disabled>Delhi</option>
+					<select id="state" class="form-select" onchange="setDistricts();">
+						<option value="">Select State</option>
 					</select>
 				</div>
 
 				<div class="col-md-6">
 					<label for="district" class="form-label">District:</label>
-					<select id="district" class="form-select">
-						<option value="" selected disabled>All</option>
+					<select onchange="check();" id="district" class="form-select">
+						<option value="All" selected>All</option>
 					</select>
 				</div>
 			</div>
