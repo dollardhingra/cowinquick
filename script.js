@@ -119,7 +119,7 @@ function get(callback, district, match_count) {
     var req = new XMLHttpRequest();
     const d_id = district;
     const date = getDate();
-    const url = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=${d_id}&date=${date}`;
+    const url = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${d_id}&date=${date}`;
     req.open('GET', url, true);
     req.responseType = 'json';
     req.onload = function () {
@@ -180,6 +180,10 @@ function get_callback(district_id, err, res, match_count){
 
 
 function check() {
+    if (!state.value){
+        alert("Select State");
+        return;
+    }
     results.innerHTML = ""
     let match_count = 0;
     if (selected_district.value == "All") {
